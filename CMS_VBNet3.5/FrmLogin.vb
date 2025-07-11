@@ -34,24 +34,25 @@ Public Class FrmLogin
         Dim hashedPassword As String = GetMD5(password)
         Try
             connection.Open()
-            Dim sql As String = "SELECT COUNT(*) FROM users WHERE user_name = ? AND user_password = ?"
+            Dim sql As String = "SELECT user_role FROM users WHERE user_name = ? AND user_password = ?"
 
             Using dml As New OdbcCommand(sql, connection)
 
                 dml.Parameters.AddWithValue("@user_name", username)
                 dml.Parameters.AddWithValue("@user_password", hashedPassword)
 
-                Dim count As Integer = CInt(dml.ExecuteScalar())
-                If count > 0 Then
+                Dim role As Object = dml.ExecuteScalar()
+                If role IsNot Nothing Then
                     MessageBox.Show("Login successful!")
+                    Dim userRole As String = role.ToString()
                     Dim frm As New FrmMainForm()
+                    frm.UserRole = userRole
                     Me.Hide()
                     frm.ShowDialog()
                     Me.Close()
                 Else
                     MessageBox.Show("Invalid username or password.")
                 End If
-
             End Using
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
@@ -64,7 +65,7 @@ Public Class FrmLogin
         connect_db()
     End Sub
 
-    Private Sub linkRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lkRegister.LinkClicked
+    Private Sub linkRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         Dim frmRegister As New FrmRegister()
         frmRegister.Owner = Me
         frmRegister.ShowDialog()

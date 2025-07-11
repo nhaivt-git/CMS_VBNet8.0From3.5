@@ -7,6 +7,12 @@ Public Class FrmUserList
     Private totalRows As Integer = 0
     Private totalPages As Integer = 1
 
+    Private Role As String
+    Public Sub New(userRole As String)
+        InitializeComponent()
+        Me.Role = userRole
+    End Sub
+
     Private Sub FrmUserList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim connStr As String = "DSN=mysql_cms_vbnet3.5;Uid=root;Pwd=;"
         connection = New OdbcConnection(connStr)
@@ -14,7 +20,7 @@ Public Class FrmUserList
         dgvUsers.AutoGenerateColumns = False
         LoadUserList()
 
-        'set background color for DataGridView
+        'set background color and border for Header of DataGridView
         With dgvUsers
             .EnableHeadersVisualStyles = False
             .ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray
@@ -72,6 +78,13 @@ Public Class FrmUserList
         colRole.DataPropertyName = "user_role"
         dgvUsers.Columns.Add(colRole)
 
+        'icon edit column
+        Dim colIcon As New DataGridViewImageColumn()
+        colIcon.Name = "action"
+        colIcon.HeaderText = ""
+        colIcon.Image = My.Resources.Icon_Edit
+        dgvUsers.Columns.Add(colIcon)
+
         Dim username As String = txtUsername.Text.Trim()
         Dim email As String = txtEmail.Text.Trim()
         Dim role As String = cbxRole.Text.Trim()
@@ -126,5 +139,35 @@ Public Class FrmUserList
         cbxRole.SelectedIndex = -1
     End Sub
 
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Dim frm As New FrmUserDtl()
+        frm.ShowDialog(Me)
+    End Sub
+
+    'Set the cursor effect
+    Private Sub dgvUsers_CellMouseMove(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvUsers.CellMouseMove
+        If e.ColumnIndex >= 0 AndAlso dgvUsers.Columns(e.ColumnIndex).Name = "action" Then
+            dgvUsers.Cursor = Cursors.Hand
+        Else
+            dgvUsers.Cursor = Cursors.Default
+        End If
+    End Sub
+
+    Private Sub dgvUsers_CellMouseLeave(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsers.CellMouseLeave
+        dgvUsers.Cursor = Cursors.Default
+    End Sub
+
+    'click on Edit icon 
+    Private Sub dgvUsers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsers.CellContentClick
+        If e.ColumnIndex >= 0 AndAlso dgvUsers.Columns(e.ColumnIndex).Name = "action" AndAlso e.RowIndex >= 0 Then
+            ' Get user_id from  clicked row
+            Dim UserId As Integer = Convert.ToInt32(dgvUsers.Rows(e.RowIndex).Cells("user_id").Value)
+            ' Open form user Detail and pass userId parameter
+            Dim frm As New FrmUserDtl()
+            frm.Show()
+            frm.LoadUser(UserId)
+            ' MessageBox.Show("Edit user with ID: " & userId)
+        End If
+    End Sub
 End Class
 

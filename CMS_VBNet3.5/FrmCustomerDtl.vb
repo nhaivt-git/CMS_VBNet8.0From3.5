@@ -123,16 +123,4 @@ Public Class FrmCustomerDtl
         isEditMode = False
         currentCustomerId = -1
     End Sub
-
-    'Private Sub InitializeComponent()
-    '    Me.SuspendLayout()
-    '    '
-    '    'FrmCustomerDetail
-    '    '
-    '    Me.ClientSize = New System.Drawing.Size(284, 261)
-    '    Me.Name = "FrmCustomerDetail"
-    '    Me.ResumeLayout(False)
-
-    'End Sub
-
 End Class

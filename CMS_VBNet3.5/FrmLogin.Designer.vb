@@ -26,7 +26,6 @@ Partial Class FrmLogin
         Me.txtUsrNm = New System.Windows.Forms.TextBox()
         Me.txtPwd = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lkRegister = New System.Windows.Forms.LinkLabel()
         Me.btnLogin = New CMS_VBNet3._5.MyButton()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -50,21 +49,11 @@ Partial Class FrmLogin
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(72, 112)
+        Me.Label1.Location = New System.Drawing.Point(51, 108)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 13)
+        Me.Label1.Size = New System.Drawing.Size(324, 13)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Forgot your password?"
-        '
-        'lkRegister
-        '
-        Me.lkRegister.AutoSize = True
-        Me.lkRegister.Location = New System.Drawing.Point(196, 112)
-        Me.lkRegister.Name = "lkRegister"
-        Me.lkRegister.Size = New System.Drawing.Size(69, 13)
-        Me.lkRegister.TabIndex = 4
-        Me.lkRegister.TabStop = True
-        Me.lkRegister.Text = "Register now"
+        Me.Label1.Text = "Forgot your password? Please contact the administrator for support."
         '
         'btnLogin
         '
@@ -73,7 +62,7 @@ Partial Class FrmLogin
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.btnLogin.ForeColor = System.Drawing.Color.White
-        Me.btnLogin.Location = New System.Drawing.Point(125, 147)
+        Me.btnLogin.Location = New System.Drawing.Point(115, 128)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(75, 23)
         Me.btnLogin.TabIndex = 3
@@ -106,7 +95,6 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnLogin)
-        Me.Controls.Add(Me.lkRegister)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtPwd)
         Me.Controls.Add(Me.txtUsrNm)
@@ -121,7 +109,6 @@ Partial Class FrmLogin
     Friend WithEvents txtUsrNm As TextBox
     Friend WithEvents txtPwd As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents lkRegister As LinkLabel
     Friend WithEvents btnLogin As MyButton
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label

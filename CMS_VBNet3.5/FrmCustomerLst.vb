@@ -1,4 +1,5 @@
 ﻿Imports System.Data.Odbc
+Imports System.Windows.Forms.VisualStyles
 
 Public Class FrmCustomerLst
     Private connection As OdbcConnection
@@ -7,10 +8,33 @@ Public Class FrmCustomerLst
     Private totalRows As Integer = 0
     Private totalPages As Integer = 1
 
+    Private Role As String
+    Public Sub New(userRole As String)
+        InitializeComponent()
+        Me.Role = userRole
+    End Sub
+
     Private Sub FrmCustomerLst_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim connStr As String = "DSN=mysql_cms_vbnet3.5;Uid=root;Pwd=;"
         connection = New OdbcConnection(connStr)
         LoadCustomerList()
+
+        'Role-based button visibility
+        If Role = "Admin" Then
+            btnAdd.Visible = True
+            dgvCustomers.Columns("action").Visible = True
+        Else
+            btnAdd.Visible = False
+            dgvCustomers.Columns("action").Visible = False
+        End If
+
+        'set background color and border for Header of DataGridView
+        With dgvCustomers
+            .EnableHeadersVisualStyles = False
+            .ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray
+            .ColumnHeadersDefaultCellStyle.ForeColor = Color.Black
+            .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+        End With
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -39,7 +63,7 @@ Public Class FrmCustomerLst
         'Set up DataGridView columns
         Dim colId As New DataGridViewTextBoxColumn()
         colId.Name = "customer_id"
-        colId.HeaderText = "Customer ID"
+        colId.HeaderText = "ID"
         colId.DataPropertyName = "customer_id"
         dgvCustomers.Columns.Add(colId)
 
@@ -136,7 +160,7 @@ Public Class FrmCustomerLst
 
 
     'Set the cursor effect
-    Private Sub dgvUsers_CellMouseMove(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvCustomers.CellMouseMove
+    Private Sub dgvCustomers_CellMouseMove(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvCustomers.CellMouseMove
         If e.ColumnIndex >= 0 AndAlso dgvCustomers.Columns(e.ColumnIndex).Name = "action" Then
             dgvCustomers.Cursor = Cursors.Hand
         Else
@@ -144,12 +168,12 @@ Public Class FrmCustomerLst
         End If
     End Sub
 
-    Private Sub dgvUsers_CellMouseLeave(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCustomers.CellMouseLeave
+    Private Sub dgvCustomers_CellMouseLeave(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCustomers.CellMouseLeave
         dgvCustomers.Cursor = Cursors.Default
     End Sub
 
     'click on Edit icon 
-    Private Sub dgvUsers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCustomers.CellContentClick
+    Private Sub dgvCustomers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCustomers.CellContentClick
         If e.ColumnIndex >= 0 AndAlso dgvCustomers.Columns(e.ColumnIndex).Name = "action" AndAlso e.RowIndex >= 0 Then
             ' Get customer_id from  clicked row
             Dim customerId As Integer = Convert.ToInt32(dgvCustomers.Rows(e.RowIndex).Cells("customer_id").Value)

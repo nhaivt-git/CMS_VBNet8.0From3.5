@@ -34,26 +34,28 @@ Partial Class FrmUserList
         Me.btnNext = New System.Windows.Forms.Button()
         Me.lblPageInfo = New System.Windows.Forms.Label()
         Me.btnSearch = New CMS_VBNet3._5.MyButton()
+        Me.btnAdd = New CMS_VBNet3._5.MyButton()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.dgvUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(76, 14)
+        Me.txtUsername.Location = New System.Drawing.Point(76, 34)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(133, 20)
         Me.txtUsername.TabIndex = 1
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(258, 14)
+        Me.txtEmail.Location = New System.Drawing.Point(258, 34)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(192, 20)
         Me.txtEmail.TabIndex = 2
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(377, 50)
+        Me.btnClear.Location = New System.Drawing.Point(377, 70)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
         Me.btnClear.TabIndex = 4
@@ -65,16 +67,16 @@ Partial Class FrmUserList
         Me.dgvUsers.AllowUserToAddRows = False
         Me.dgvUsers.AllowUserToDeleteRows = False
         Me.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvUsers.Location = New System.Drawing.Point(15, 91)
+        Me.dgvUsers.Location = New System.Drawing.Point(15, 132)
         Me.dgvUsers.Name = "dgvUsers"
         Me.dgvUsers.ReadOnly = True
-        Me.dgvUsers.Size = New System.Drawing.Size(646, 240)
+        Me.dgvUsers.Size = New System.Drawing.Size(669, 219)
         Me.dgvUsers.TabIndex = 4
         '
         'lblUsername
         '
         Me.lblUsername.AutoSize = True
-        Me.lblUsername.Location = New System.Drawing.Point(15, 18)
+        Me.lblUsername.Location = New System.Drawing.Point(15, 38)
         Me.lblUsername.Name = "lblUsername"
         Me.lblUsername.Size = New System.Drawing.Size(55, 13)
         Me.lblUsername.TabIndex = 5
@@ -83,7 +85,7 @@ Partial Class FrmUserList
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(220, 18)
+        Me.lblEmail.Location = New System.Drawing.Point(220, 38)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(32, 13)
         Me.lblEmail.TabIndex = 6
@@ -92,7 +94,7 @@ Partial Class FrmUserList
         'lblRole
         '
         Me.lblRole.AutoSize = True
-        Me.lblRole.Location = New System.Drawing.Point(41, 53)
+        Me.lblRole.Location = New System.Drawing.Point(41, 73)
         Me.lblRole.Name = "lblRole"
         Me.lblRole.Size = New System.Drawing.Size(29, 13)
         Me.lblRole.TabIndex = 7
@@ -103,14 +105,14 @@ Partial Class FrmUserList
         Me.cbxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxRole.FormattingEnabled = True
         Me.cbxRole.Items.AddRange(New Object() {"Admin", "User"})
-        Me.cbxRole.Location = New System.Drawing.Point(76, 50)
+        Me.cbxRole.Location = New System.Drawing.Point(76, 70)
         Me.cbxRole.Name = "cbxRole"
         Me.cbxRole.Size = New System.Drawing.Size(121, 21)
         Me.cbxRole.TabIndex = 8
         '
         'btnPrev
         '
-        Me.btnPrev.Location = New System.Drawing.Point(15, 336)
+        Me.btnPrev.Location = New System.Drawing.Point(15, 356)
         Me.btnPrev.Name = "btnPrev"
         Me.btnPrev.Size = New System.Drawing.Size(75, 23)
         Me.btnPrev.TabIndex = 9
@@ -119,7 +121,7 @@ Partial Class FrmUserList
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(105, 336)
+        Me.btnNext.Location = New System.Drawing.Point(105, 356)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(75, 23)
         Me.btnNext.TabIndex = 10
@@ -129,7 +131,7 @@ Partial Class FrmUserList
         'lblPageInfo
         '
         Me.lblPageInfo.AutoSize = True
-        Me.lblPageInfo.Location = New System.Drawing.Point(200, 341)
+        Me.lblPageInfo.Location = New System.Drawing.Point(200, 361)
         Me.lblPageInfo.Name = "lblPageInfo"
         Me.lblPageInfo.Size = New System.Drawing.Size(52, 13)
         Me.lblPageInfo.TabIndex = 11
@@ -141,18 +143,43 @@ Partial Class FrmUserList
         Me.btnSearch.FlatAppearance.BorderSize = 0
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.ForeColor = System.Drawing.Color.White
-        Me.btnSearch.Location = New System.Drawing.Point(280, 50)
+        Me.btnSearch.Location = New System.Drawing.Point(280, 70)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(75, 23)
         Me.btnSearch.TabIndex = 12
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = False
         '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.Color.Blue
+        Me.btnAdd.FlatAppearance.BorderSize = 0
+        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdd.ForeColor = System.Drawing.Color.White
+        Me.btnAdd.Location = New System.Drawing.Point(15, 106)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(75, 23)
+        Me.btnAdd.TabIndex = 13
+        Me.btnAdd.Text = "Add New"
+        Me.btnAdd.UseVisualStyleBackColor = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label5.Location = New System.Drawing.Point(12, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(57, 13)
+        Me.Label5.TabIndex = 16
+        Me.Label5.Text = "User List"
+        '
         'FrmUserList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(710, 400)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnPrev)
         Me.Controls.Add(Me.btnNext)
@@ -185,4 +212,6 @@ Partial Class FrmUserList
     Friend WithEvents btnNext As System.Windows.Forms.Button
     Friend WithEvents lblPageInfo As System.Windows.Forms.Label
     Friend WithEvents btnSearch As MyButton
+    Friend WithEvents btnAdd As MyButton
+    Friend WithEvents Label5 As Label
 End Class

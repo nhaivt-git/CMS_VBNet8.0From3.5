@@ -37,13 +37,14 @@ Partial Class FrmCustomerLst
         Me.lblPageInfo = New System.Windows.Forms.Label()
         Me.btnAdd = New CMS_VBNet3._5.MyButton()
         Me.btnSearch = New CMS_VBNet3._5.MyButton()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(38, 13)
+        Me.Label1.Location = New System.Drawing.Point(38, 30)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 0
@@ -52,7 +53,7 @@ Partial Class FrmCustomerLst
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(288, 14)
+        Me.Label2.Location = New System.Drawing.Point(288, 31)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(38, 13)
         Me.Label2.TabIndex = 1
@@ -61,7 +62,7 @@ Partial Class FrmCustomerLst
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(33, 39)
+        Me.Label3.Location = New System.Drawing.Point(33, 56)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(45, 13)
         Me.Label3.TabIndex = 2
@@ -70,7 +71,7 @@ Partial Class FrmCustomerLst
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(288, 39)
+        Me.Label4.Location = New System.Drawing.Point(288, 56)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(42, 13)
         Me.Label4.TabIndex = 3
@@ -78,7 +79,7 @@ Partial Class FrmCustomerLst
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(593, 38)
+        Me.btnClear.Location = New System.Drawing.Point(593, 55)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
         Me.btnClear.TabIndex = 4
@@ -87,21 +88,21 @@ Partial Class FrmCustomerLst
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(94, 11)
+        Me.txtName.Location = New System.Drawing.Point(94, 28)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(178, 20)
         Me.txtName.TabIndex = 6
         '
         'txtAddress
         '
-        Me.txtAddress.Location = New System.Drawing.Point(94, 39)
+        Me.txtAddress.Location = New System.Drawing.Point(94, 56)
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(178, 20)
         Me.txtAddress.TabIndex = 7
         '
         'txtPhone
         '
-        Me.txtPhone.Location = New System.Drawing.Point(345, 11)
+        Me.txtPhone.Location = New System.Drawing.Point(345, 28)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(135, 20)
         Me.txtPhone.TabIndex = 8
@@ -111,7 +112,7 @@ Partial Class FrmCustomerLst
         Me.cbxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxGender.FormattingEnabled = True
         Me.cbxGender.Items.AddRange(New Object() {"Male", "Female"})
-        Me.cbxGender.Location = New System.Drawing.Point(345, 38)
+        Me.cbxGender.Location = New System.Drawing.Point(345, 55)
         Me.cbxGender.Name = "cbxGender"
         Me.cbxGender.Size = New System.Drawing.Size(121, 21)
         Me.cbxGender.TabIndex = 9
@@ -121,14 +122,14 @@ Partial Class FrmCustomerLst
         Me.dgvCustomers.AllowUserToAddRows = False
         Me.dgvCustomers.AllowUserToDeleteRows = False
         Me.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCustomers.Location = New System.Drawing.Point(35, 92)
+        Me.dgvCustomers.Location = New System.Drawing.Point(35, 109)
         Me.dgvCustomers.Name = "dgvCustomers"
-        Me.dgvCustomers.Size = New System.Drawing.Size(679, 234)
+        Me.dgvCustomers.Size = New System.Drawing.Size(615, 234)
         Me.dgvCustomers.TabIndex = 10
         '
         'btnPrev
         '
-        Me.btnPrev.Location = New System.Drawing.Point(35, 337)
+        Me.btnPrev.Location = New System.Drawing.Point(35, 354)
         Me.btnPrev.Name = "btnPrev"
         Me.btnPrev.Size = New System.Drawing.Size(75, 23)
         Me.btnPrev.TabIndex = 11
@@ -137,7 +138,7 @@ Partial Class FrmCustomerLst
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(116, 337)
+        Me.btnNext.Location = New System.Drawing.Point(116, 354)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(75, 23)
         Me.btnNext.TabIndex = 12
@@ -147,7 +148,7 @@ Partial Class FrmCustomerLst
         'lblPageInfo
         '
         Me.lblPageInfo.AutoSize = True
-        Me.lblPageInfo.Location = New System.Drawing.Point(220, 342)
+        Me.lblPageInfo.Location = New System.Drawing.Point(220, 359)
         Me.lblPageInfo.Name = "lblPageInfo"
         Me.lblPageInfo.Size = New System.Drawing.Size(52, 13)
         Me.lblPageInfo.TabIndex = 13
@@ -159,7 +160,7 @@ Partial Class FrmCustomerLst
         Me.btnAdd.FlatAppearance.BorderSize = 0
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.ForeColor = System.Drawing.Color.White
-        Me.btnAdd.Location = New System.Drawing.Point(35, 67)
+        Me.btnAdd.Location = New System.Drawing.Point(35, 84)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(75, 23)
         Me.btnAdd.TabIndex = 14
@@ -172,18 +173,29 @@ Partial Class FrmCustomerLst
         Me.btnSearch.FlatAppearance.BorderSize = 0
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.ForeColor = System.Drawing.Color.White
-        Me.btnSearch.Location = New System.Drawing.Point(593, 11)
+        Me.btnSearch.Location = New System.Drawing.Point(593, 28)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(75, 23)
         Me.btnSearch.TabIndex = 5
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = False
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label5.Location = New System.Drawing.Point(12, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(83, 13)
+        Me.Label5.TabIndex = 15
+        Me.Label5.Text = "Customer List"
+        '
         'FrmCustomerLst
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.lblPageInfo)
@@ -222,4 +234,5 @@ Partial Class FrmCustomerLst
     Friend WithEvents btnNext As Button
     Friend WithEvents lblPageInfo As Label
     Friend WithEvents btnAdd As MyButton
+    Friend WithEvents Label5 As Label
 End Class
