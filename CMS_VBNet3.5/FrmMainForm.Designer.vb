@@ -46,7 +46,7 @@ Partial Class FrmMainForm
         '
         'pnlHeader
         '
-        Me.pnlHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.pnlHeader.BackColor = System.Drawing.Color.LightGray
         Me.pnlHeader.Controls.Add(Me.lkLogout)
         Me.pnlHeader.Controls.Add(Me.PictureBox2)
         Me.pnlHeader.Controls.Add(Me.lblUserName)

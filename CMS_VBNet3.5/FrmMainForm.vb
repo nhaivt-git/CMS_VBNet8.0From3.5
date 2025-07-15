@@ -19,6 +19,8 @@
     End Sub
 
     Private Sub FrmMainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        PictureBox2.Parent = pnlHeader
+        PictureBox2.BackColor = Color.Transparent
         MenuStrip1.BackColor = pnlMenu.BackColor
         MenuStrip1.RenderMode = ToolStripRenderMode.System
         lblUserName.Text = "Welcome, " & Environment.UserName
@@ -41,4 +43,7 @@
         Me.Close()
     End Sub
 
+    Private Sub pnlHeader_Paint(sender As Object, e As PaintEventArgs) Handles pnlHeader.Paint
+
+    End Sub
 End Class

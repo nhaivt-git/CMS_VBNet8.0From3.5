@@ -139,6 +139,14 @@ Public Class FrmCustomerLst
             lblPageInfo.Text = "Page " & currentPage & "/" & totalPages
             btnPrev.Enabled = currentPage > 1
             btnNext.Enabled = currentPage < totalPages
+
+
+            'Role-based button visibility
+            If Role = "Admin" Then
+                dgvCustomers.Columns("action").Visible = True
+            Else
+                dgvCustomers.Columns("action").Visible = False
+            End If
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         Finally

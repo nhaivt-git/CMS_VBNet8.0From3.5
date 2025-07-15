@@ -121,6 +121,13 @@ Public Class FrmUserList
             lblPageInfo.Text = "Page " & currentPage & "/" & totalPages
             btnPrev.Enabled = currentPage > 1
             btnNext.Enabled = currentPage < totalPages
+
+            'Role-based button visibility
+            If role = "Admin" Then
+                dgvUsers.Columns("action").Visible = True
+            Else
+                dgvUsers.Columns("action").Visible = False
+            End If
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         Finally
