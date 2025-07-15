@@ -38,6 +38,7 @@ Partial Class FrmCustomerLst
         Me.btnAdd = New CMS_VBNet3._5.MyButton()
         Me.btnSearch = New CMS_VBNet3._5.MyButton()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnExportCSV = New CMS_VBNet3._5.MyButton()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -190,11 +191,25 @@ Partial Class FrmCustomerLst
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Customer List"
         '
+        'btnExportCSV
+        '
+        Me.btnExportCSV.BackColor = System.Drawing.Color.Blue
+        Me.btnExportCSV.FlatAppearance.BorderSize = 0
+        Me.btnExportCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExportCSV.ForeColor = System.Drawing.Color.White
+        Me.btnExportCSV.Location = New System.Drawing.Point(485, 84)
+        Me.btnExportCSV.Name = "btnExportCSV"
+        Me.btnExportCSV.Size = New System.Drawing.Size(75, 23)
+        Me.btnExportCSV.TabIndex = 16
+        Me.btnExportCSV.Text = "Export CSV"
+        Me.btnExportCSV.UseVisualStyleBackColor = False
+        '
         'FrmCustomerLst
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnExportCSV)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnNext)
@@ -235,4 +250,5 @@ Partial Class FrmCustomerLst
     Friend WithEvents lblPageInfo As Label
     Friend WithEvents btnAdd As MyButton
     Friend WithEvents Label5 As Label
+    Friend WithEvents btnExportCSV As MyButton
 End Class

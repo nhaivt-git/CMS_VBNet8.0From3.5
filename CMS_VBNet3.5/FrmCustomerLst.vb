@@ -1,5 +1,7 @@
 ﻿Imports System.Data.Odbc
 Imports System.Windows.Forms.VisualStyles
+Imports System.IO
+Imports System.Text
 
 Public Class FrmCustomerLst
     Private connection As OdbcConnection
@@ -193,4 +195,69 @@ Public Class FrmCustomerLst
         End If
     End Sub
 
+    Private Sub btnExportCSV_Click(sender As Object, e As EventArgs) Handles btnExportCSV.Click
+        If dgvCustomers.Rows.Count = 0 Then
+            MessageBox.Show("No data to export.")
+            Return
+        End If
+
+        ' Hộp thoại lưu file
+        Dim sfd As New SaveFileDialog()
+        sfd.Filter = "CSV files (*.csv)|*.csv"
+        sfd.FileName = "data.csv"
+
+        If sfd.ShowDialog() = DialogResult.OK Then
+            Try
+                Dim sb As New StringBuilder()
+
+                ' Ghi dòng tiêu đề
+                For i As Integer = 0 To dgvCustomers.Columns.Count - 1
+                    'sb.Append(dgvCustomers.Columns(i).HeaderText)
+                    'If i < dgvCustomers.Columns.Count - 1 Then
+                    '    sb.Append(",")
+                    'End If
+
+                    'không xuất cột icon
+                    Dim col = dgvCustomers.Columns(i)
+                    If col.Visible AndAlso col.HeaderText <> "" AndAlso Not TypeOf col Is DataGridViewImageColumn Then
+                        sb.Append(col.HeaderText)
+                        sb.Append(",")
+                    End If
+                Next
+                sb.Length -= 1 ' Xoá dấu "," cuối cùng vì có cột icon
+                sb.AppendLine()
+
+                ' Ghi dữ liệu từng dòng
+                For Each row As DataGridViewRow In dgvCustomers.Rows
+                    If Not row.IsNewRow Then
+                        For i As Integer = 0 To dgvCustomers.Columns.Count - 1
+                            'Dim cellValue As String = row.Cells(i).Value.ToString().Replace(",", " ") ' tránh lỗi dấu phẩy
+                            'sb.Append(cellValue)
+                            'If i < dgvCustomers.Columns.Count - 1 Then
+                            '    sb.Append(",")
+                            'End If
+
+                            ' không xuất dữ liệu cột icon
+                            Dim col = dgvCustomers.Columns(i)
+                            If col.Visible AndAlso col.HeaderText <> "" AndAlso Not TypeOf col Is DataGridViewImageColumn Then
+                                Dim val = row.Cells(i).Value
+                                Dim strVal = If(val IsNot Nothing, val.ToString().Replace(",", " "), "")
+                                sb.Append(strVal)
+                                sb.Append(",")
+                            End If
+                        Next
+                        sb.Length -= 1 ' Xoá dấu "," cuối cùng của dòng
+                        sb.AppendLine()
+                    End If
+                Next
+
+                ' Ghi vào file
+                File.WriteAllText(sfd.FileName, sb.ToString(), Encoding.UTF8)
+                MessageBox.Show("Export CSV successful!")
+
+            Catch ex As Exception
+                MessageBox.Show("Error when output CSV: " & ex.Message)
+            End Try
+        End If
+    End Sub
 End Class
