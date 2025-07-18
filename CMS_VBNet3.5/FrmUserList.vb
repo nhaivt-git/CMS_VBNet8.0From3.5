@@ -1,4 +1,5 @@
 Imports System.Data.Odbc
+Imports System.Data
 
 Public Class FrmUserList
     Private connection As OdbcConnection
